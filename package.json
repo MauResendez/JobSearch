@@ -2,15 +2,19 @@
   "name": "jobsearch",
   "version": "1.0.0",
   "description": "\"# JobSearch\"",
+  "engines": {
+    "node": "10.x"
+  },
   "main": "server.js",
   "dependencies": {
+    "bcrypt": "^3.0.6",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
     "express-session": "^1.17.0",
     "sequelize": "^5.21.2",
     "sequelize-auto": "^0.4.29",
     "serve-favicon": "^2.5.0",
-    "sqlite3": "^4.1.1"
+    "sqlite3": "^4.1.0"
   },
   "devDependencies": {},
   "scripts": {
