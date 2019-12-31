@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	 <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<title>Job Search - {{page}}</title>
+</head>
+<body>
+<div id="page-container"><!-- page-container contains everything but footer-->
+<nav class="navbar navbar-light bg-#212121 navbar-expand-lg sticky-top shadow p-3 mb-5 bg-white rounded" id="navColor">
+    	<a href="/home" class="navbar-brand"><img src="logoSmall2.jpg" id="logo" alt="S"></a>
+            
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto ">
+                  {{#if user}}
+                    {{#if_eq type "Employee"}}
+                    <li class="navbar-item {{#if active.home}}active{{/if}}">
+                        <a href="/home" class="nav-link ">Home</a>
+                    </li>
+                    <li class="navbar-item {{#if active.jobs}}active{{/if}}">
+                        <a href="/jobs" class="nav-link ">Jobs Applied</a>
+                    </li>
+                    <li class="navbar-item {{#if active.saved}}active{{/if}}">
+                        <a href="/saved" class="nav-link ">View Later</a>
+                    </li>
+                    {{/if_eq}}
+                    {{#if_eq type "Employer"}}
+                    <li class="navbar-item {{#if active.upload}}active{{/if}}">
+                        <a href="/home" class="nav-link ">Job Upload</a>
+                    </li>
+                    <li class="navbar-item {{#if active.jobs}}active{{/if}}">
+                        <a href="/jobs" class="nav-link ">Jobs Posted</a>
+                    </li>
+                    <li class="navbar-item {{#if active.applicants}}active{{/if}}">
+                        <a href="/applicants" class="nav-link ">Applicants</a>
+                    </li>
+                    {{/if_eq}}
+                    <li class="navbar-item {{#if active.account}}active{{/if}}">
+                        <a href="/account" class="nav-link ">Account</a>
+                    </li>
+                    <li class="navbar-item {{#if active.messages}}active{{/if}}">
+                        <a href="/messages" class="nav-link ">Messages</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="/logout" class="nav-link ">Logout</a>
+                    </li>
+                  {{else}}
+                    <li class="navbar-item {{#if active.home}}active{{/if}}">
+                        <a href="/home" class="nav-link ">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Login/Register    
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li>
+                                <form class="form-inline my-2 my-lg-0">
+            
+                                    <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" id="header-button" ><a href="/employer_login">Employer Log In</a></button>
+            
+                                </form>
+                            </li>
+                            <li>
+                                <form class="form-inline my-2 my-lg-0">
+                                    <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" id="header-button" ><a href="/login">Employee Log In</a></button>
+                                </form>
+                            </li>
+                            <li>
+                                <form class="form-inline my-2 my-lg-0">
+                                    <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" id="header-button" ><a href="/employer_register">Employer Register</a></button>
+                                </form>
+                            </li>
+                            <li>
+                                <form class="form-inline my-2 my-lg-0">
+                                    <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" id="header-button" ><a href="/register">Employee Register</a></button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                    {{/if}}
+                </ul>
+            </div>
+        </nav>
+<div id="content-wrap"><!--content container-->
+  
+{{{body}}}
+
+</div><!--content container-->
+</div><!-- page-container -->
+
+
+
+
+<!-- Footer -->
+{{#unless user}}
+<footer id="footer">
+    <div class="card text-center p-3 mb-2 bg-dark text-white" >
+        <div class="card-body" id="fo">
+            <h5 class="card-title display-5 text-light">Register for free!</h5>
+            <a href="/register"  class="card-title display-5 text-light" id="align-next">SIGN UP!</a>
+        </div>
+        <div class="card-footer text-muted text-light">
+            © 2019 Copyright: JobSearch.com
+        </div>
+    </div>
+</footer>
+{{else}}
+<footer id="footer">
+    <div class="card text-center p-3 mb-2 bg-dark text-white" >
+        <div class="card-body" id="fo">
+            <h5 class="card-title display-5 text-light">Welcome to JobSearch!</h5>
+        </div>
+        <div class="card-footer text-muted text-light">
+            © 2019 Copyright: JobSearch.com
+        </div>
+    </div>
+</footer>
+{{/unless}}
+<!-- Footer -->
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>
+

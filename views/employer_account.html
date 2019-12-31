@@ -1,0 +1,44 @@
+<html>
+    <header>
+        <link rel="stylesheet" type="text/css" href="account.css">
+        <title>Account</title>
+    </header>
+
+    <body>
+        {{#user}}
+        <form method="POST" action="/update_or_delete_account">
+            <div class="container">
+                <h1>Account Settings</h1>
+                <hr>            
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Email" name="email" value={{email}}>
+                        
+                    <label for="password"><b>Password</b></label>
+                    <input type="password" placeholder="Password" name="original_password">
+
+                    <!-- <label for="company_name"><b>Company</b></label>
+                    <input type="text" placeholder="Company" name="company" value={{company}}> -->
+
+                    <label for="city"><b>City</b></label>
+                    <input type="text" placeholder="City" name="city" value={{city}}>
+
+                    <label for="state"><b>State</b></label>
+                    <input type="text" placeholder="State" name="state" value={{state}}>
+
+                    <label for="update"><b>Update your account</b></label>
+                    <br>
+                    <button type="submit" value="pressed" class="btn btn-primary" name="update_btn">Update</button>
+
+                    <br>
+                    <br>
+                    
+                    <label for="delete"><b>Close your account</b></label>
+                    <br>
+                    <button type="submit" value="pressed" class="btn btn-primary" name="delete_btn">Delete</button>
+            </div>
+            <hr>
+        </form>
+        {{/user}}
+
+    </body>
+</html>

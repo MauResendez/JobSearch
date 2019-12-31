@@ -1,0 +1,23 @@
+{{#saved_jobs}}
+    <div class="container">
+        <div class="card">
+          <div class="card-header"><strong>{{company}}</strong></div>
+          <div class="card-body">
+            <p class="card-title">{{title}}</h5>
+            <p class="card-text">${{pay}}</p>
+            <p class="card-text">{{education}}</p>
+            <p class="card-text">{{major}}</p>
+            <p class="card-text">{{city}}, {{state}}</p>
+            <p class="card-text">{{description}}</p>
+            <form method="POST" action="/apply/{{job_id}}">
+                <button type="submit" value="pressed" class="btn btn-primary" name="apply_btn">Apply</button>
+            </form>
+            <br>
+            <form method="POST" action="/delete/{{job_id}}">
+              <button type="submit" value="pressed" class="btn btn-primary" name="delete_btn">Delete</button>
+            </form>
+          </div>
+        </div>
+    </div>
+    <br>
+{{/saved_jobs}}

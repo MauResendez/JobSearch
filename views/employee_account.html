@@ -1,0 +1,74 @@
+<html>
+    <header>
+        <link rel="stylesheet" type="text/css" href="account.css">
+        <title>Account</title>
+    </header>
+
+    <body>
+        {{#user}}
+        <form method="POST" action="/update_or_delete_account">
+            <div class="container">
+                <h1>Account Settings</h1>
+                <hr>            
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Email" name="email" value={{email}}>
+                        
+                    <label for="password"><b>Password</b></label>
+                    <input type="password" placeholder="Password" name="original_password">
+
+                    <label for="city"><b>City</b></label>
+                    <input type="text" placeholder="City" name="city" value={{city}}>
+
+                    <label for="state"><b>State</b></label>
+                    <input type="text" placeholder="State" name="state" value={{state}}>
+
+                    <!-- <select name="education" id="education" value={{education}} required>
+                        
+                    </select> -->
+
+                    <label for="education"><b>Education</b></label>
+                    <select name="education" id="education">
+                        <option value="{{education}}" hidden="hidden" selected="selected">{{education}}</option>
+                        <option value="High School">High School</option>
+                        <option value="Bachelor's">Bachelor's</option>
+                        <option value="Master's">Master's</option>
+                        <option value="PhD">PhD</option>
+                    </select>
+        
+                    <label for="major"><b>Major</b></label>
+                    <select name="major" id="major">
+                        <option value="{{major}}" hidden="hidden" selected="selected">{{major}}</option>
+                        <option value="Accounting">Accounting</option>
+                        <option value="Biology">Biology</option>
+                        <option value="Civil Engineering">Civil Engineering</option>
+                        <option value="Computer Engineering">Computer Engineering</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Electrical Engineering">Electrical Engineering</option>
+                        <option value="Math">Math</option>
+                        <option value="Mechanical Engineering">Mechanical Engineering</option>
+                        <option value="Physics">Physics</option>
+                    </select>
+
+                    <label for="resume"><b>Resume</b></label>
+                    <br>
+                    <input type='file' name='resume' size='20'>
+                    
+                    <br>
+                    <br>
+
+                    <label for="update"><b>Update your account</b></label>
+                    <br>
+                    <button type="submit" value="pressed" class="btn btn-primary" name="update_btn">Update</button>
+
+                    <br>
+                    <br>
+                    
+                    <label for="delete"><b>Close your account</b></label>
+                    <br>
+                    <button type="submit" value="pressed" class="btn btn-primary" name="delete_btn">Delete</button>
+            </div>
+            <hr>
+        </form>
+        {{/user}}
+    </body>
+</html>

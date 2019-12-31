@@ -1,0 +1,37 @@
+<html>
+    <head>
+            <link rel="stylesheet" type="text/css" href="login.css">
+    </head>
+
+    <body>
+        <form method="POST" action="/employer_login">
+            <div class="container">
+                <h1>Employer Login</h1>
+                <p>Please fill in this form to login into your employer account.</p>
+                <hr>            
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" name="email" value="{{email}}" required>
+                    
+                    <label for="password"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="password" value="{{password}}" required>
+
+                    {{#errors}}
+                    <div class="alert-danger p-2 mb-2">
+                        <ul>
+                            <li>{{msg}}</li>
+                            <!-- <li>Sample Error</li> -->
+                        </ul>
+                    </div>
+                    {{/errors}}
+                <hr>
+                    
+                    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+                    <button type="submit" value="pressed" class="btn btn-primary" name="login_btn">Login</button>
+            </div>
+                    
+            <div class="container signin">
+                    <p>Don't have an account? <a href="/employer_register">Register</a>.</p>
+            </div>
+        </form>
+    </body>
+</html>

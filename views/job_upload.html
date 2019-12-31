@@ -1,0 +1,61 @@
+<html>
+    <head>
+            <!-- <link rel="stylesheet" type="text/css" href="register.css"> -->
+            <link rel="stylesheet" type="text/css" href="upload.css">
+    </head>
+
+    <body>
+        <form method="POST" action="/upload_job">
+            <div class="container">
+                <h1>Upload Job</h1>
+                
+                <hr>            
+                    <label for="title"><b>Job Title</b></label>
+                    <input type="text" placeholder="Enter Job title" name="title" required>
+
+                    <label for="title"><b>Job Description</b></label>
+                    <textarea rows="10" cols="50" placeholder="Enter Job Description" name="description"></textarea>
+
+                    <label for="pay"><b>Pay</b></label>
+                    <input type="number" placeholder="Enter pay" name="pay" required>
+
+                    <label for="state"><b>State</b></label>
+                    <input type="text" placeholder="State" name="state" required>
+
+                    <label for="city"><b>City</b></label>
+                    <input type="text" placeholder="City" name="city" required>
+
+                    <label for="education"><b>Education</b></label>
+                    <select name="education" id="education">
+                        <option value="High School">High School</option>
+                        <option value="Bachelor's">Bachelor's</option>
+                        <option value="Master's">Master's</option>
+                        <option value="PhD">PhD</option>
+                    </select>
+
+                    <label for="major"><b>Major</b></label>
+                    <select name="major" id="major">
+                        <option value="None">None</option>
+                        <option value="Accounting">Accounting</option>
+                        <option value="Biology">Biology</option>
+                        <option value="Civil Engineering">Civil Engineering</option>
+                        <option value="Computer Engineering">Computer Engineering</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Electrical Engineering">Electrical Engineering</option>
+                        <option value="Math">Math</option>
+                        <option value="Mechanical Engineering">Mechanical Engineering</option>
+                        <option value="Physics">Physics</option>
+                    </select>
+                   
+                   <button type="submit" class="btn btn-primary" value="pressed" name="upload_btn">Upload</button>
+                <hr>
+                {{#errors}}		         
+	            <div class="alert-danger p-2 mb-2">
+                    {{msg}}
+                </div>
+                {{/errors}}
+            </div>
+        </form>
+    </body>
+    
+</html>

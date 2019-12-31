@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="employee_page.css">
+    </head>
+
+    <body>
+        <form method="POST" action="/job_list">
+            <div class="container">
+                <hr>            
+                    <label for="major"><b>Major</b></label>
+					<label for="where"><b>Where</b></label><br>
+					<select name="major">
+                        <option value="Any">Any</option>
+                        <option value="Accounting">Accounting</option>
+                        <option value="Biology">Biology</option>
+                        <option value="Civil Engineering">Civil Engineering</option>
+                        <option value="Computer Engineering">Computer Engineering</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Electrical Engineering">Electrical Engineering</option>
+                        <option value="Math">Math</option>
+                        <option value="Mechanical Engineering">Mechanical Engineering</option>
+                        <option value="Physics">Physics</option>				   
+                    </select>
+
+                    <input type="text" class="jobs" placeholder="Example: Texas, California" name="state">
+					   
+                    <button type="submit" class="findjobbtn" value="pressed" name="joblist_btn">Find Jobs</button>
+
+                    
+            </div>
+        </form>
+            <div class="container">
+                {{#if user}}
+                    {{#jobs}}
+                    <form method="POST" action="/apply/{{id}}">
+                        <div class="card">
+                            <div class="card-header"><strong>{{company}}</strong></div>
+                            <div class="card-body">
+                                <p class="card-title">{{title}}</h5>
+                                <p class="card-text">${{pay}}</p>
+                                <p class="card-text">{{city}}, {{state}}</p>
+                                <p class="card-text">{{description}}</p>
+                                <form method="POST" action="/apply/{{id}}">
+                                    <button type="submit" value="pressed" class="btn btn-primary" name="apply_btn">Apply</button>
+                                </form>
+                                <br>
+                                <br>
+                                <form method="POST" action="/save/{{id}}">
+                                    <button type="submit" value="pressed" class="btn btn-primary" name="save_btn">Save For Later</button>
+                                </form>
+                            </div>
+                        </div>   
+                    <br> 
+                    {{/jobs}}
+                {{/if}}
+            </div>
+    </body>
+</html>

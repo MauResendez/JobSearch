@@ -1,0 +1,42 @@
+<div class="container">
+  {{#if_eq type "Employer"}}
+    {{#applicants}}
+      <form method="POST" action="/decline/{{id}}">
+          <div class="card">
+              <div class="card-header"><strong>{{first_name}} {{last_name}}</strong></div>
+              <div class="card-body">
+                <p class="card-title">For: {{job_title}}</h5>
+                <p class="card-title">{{education}}</h5>
+                <p class="card-text">{{major}}</p>
+                <p class="card-text">{{city}}, {{state}}</p>
+                <button type="submit" value="{{resume}}" class="btn btn-primary" name="resume_btn">Resume</button>
+                <button type="submit" value="pressed" class="btn btn-primary" name="message_btn">Message</button>
+                <button type="submit" value="pressed" class="btn btn-primary" name="decline_btn">Decline</button>
+              </div>
+          </div>
+      </form>
+      <br>
+    {{/applicants}}
+  {{/if_eq}}
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
