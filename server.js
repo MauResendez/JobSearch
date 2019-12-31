@@ -7,7 +7,7 @@ const express = require('express');
 const path = require('path');
 var hbs = require( 'express-handlebars');
 const session = require('express-session');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt-nodejs');
 const loop = require('handlebars');
 const list = require('handlebars');
 var favicon = require('serve-favicon');
@@ -184,7 +184,7 @@ app.post('/register', (req,res) =>
 			}
 			else // case 3
 			{
-				Employee.create({email: email, password: bcrypt.hashSync(password, 10), city: city, state: state, education: education, major: major, first_name: first_name, last_name: last_name, resume: resume}).then(employee => 
+				Employee.create({email: email, password: bcrypt.hashSync(password), city: city, state: state, education: education, major: major, first_name: first_name, last_name: last_name, resume: resume}).then(employee => 
 				{
 					req.session.type = "Employee";
 					req.session.user = employee;
@@ -283,7 +283,7 @@ app.post('/employer_register', (req,res) =>
 					}
 					else // case 3
 					{
-						Employer.create({email: email, password: bcrypt.hashSync(password, 10), city: city, state: state, company: company}).then(employer => 
+						Employer.create({email: email, password: bcrypt.hashSync(password), city: city, state: state, company: company}).then(employer => 
 						{
 							req.session.type = "Employer";
 							req.session.user = employer;
@@ -480,7 +480,7 @@ app.get('/account', (req,res) =>
 	}
 	else
 	{
-		res.render('home', {active: { account: true }, page: "Home"});
+		res.render('home', {active: { home: true }, page: "Home"});
 	}
 });
 
@@ -540,7 +540,7 @@ app.post('/update_or_delete_account', (req,res) =>
 								Applicant.update({ city: city, state: state, education: education, major: major},
 								{ where: {employee_id: req.session.user.id}}).then(function()
 								{
-									Employee.update({email: email, password: bcrypt.hashSync(password, 10), city: city, state: state, education: education, major: major}, { where: {id: req.session.user.id}}).then(function()
+									Employee.update({email: email, password: bcrypt.hashSync(password), city: city, state: state, education: education, major: major}, { where: {id: req.session.user.id}}).then(function()
 									{
 										req.session.user.email = email;
 										req.session.user.original_password = password;
@@ -588,7 +588,7 @@ app.post('/update_or_delete_account', (req,res) =>
 							}
 							else
 							{
-								Employer.update({email: email, password: bcrypt.hashSync(password, 10), city: city, state: state}, { where: {id: req.session.user.id} }).then(function() 
+								Employer.update({email: email, password: bcrypt.hashSync(password), city: city, state: state}, { where: {id: req.session.user.id} }).then(function() 
 								{
 									req.session.save(function(err) 
 									{
