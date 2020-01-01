@@ -15,3 +15,17 @@
 #### Improve website design
 
 <img src="images/Screenshot%20(64).png">
+
+<img src="images/Screenshot%20(65).png">
+
+<img src="images/Screenshot%20(66).png">
+
+<img src="images/Screenshot%20(67).png">
+
+<img src="images/Screenshot%20(68).png">
+
+<img src="images/Screenshot%20(69).png">
+
+<img src="images/Screenshot%20(70).png">
+
+<img src="images/Screenshot%20(71).png">
