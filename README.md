@@ -4,6 +4,8 @@
 
 ### It uses Node.js and Express to be able to run on the server side and to support its functionalities and SQLite3 Database to support holding, retrieving, and querying data that we need.
 
+### To run it, run nodemon server
+
 ### Features to be added in the future:
 
 #### To be able to upload resumes/resume datapath to the database and for the employers to look/download them to see their qualifications
